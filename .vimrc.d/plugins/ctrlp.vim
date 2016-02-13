@@ -11,3 +11,6 @@ no <leader>i :CtrlPMRU<CR>
 " map leader+u to CtrlPMixed search
 no <leader>u :CtrlPMixed<CR>
 
+let g:ctrlp_custom_ignore = 'node_modules\|git\|bower_components\|dist\|public\|coverage'
+
+map <F5> :CtrlPClearAllCaches<Enter>

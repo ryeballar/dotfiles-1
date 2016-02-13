@@ -16,12 +16,12 @@ set smartindent
 " of screen in VIM while editing
 set scrolloff=8
 
-" Add a bit extra margin to the left
-set foldcolumn=1
+" no fold columns
+set foldcolumn=0
 
-" Make sure that we have a text guide for typing at only 80 chars MAX...
-set textwidth=78
-set colorcolumn=80
+" No text width
+set textwidth=0
+set colorcolumn=0
 
 " Turn backup off, since most stuff is in SVN, git ,etc.. anyway...  set nobackup
 set nowb
@@ -226,5 +226,36 @@ function! VisualSelection(direction, extra_filter) range
 	let @/ = l:pattern
 	let @" = l:saved_reg
 endfunction
+
+" Set background to dark
+set background=dark
+" Transparent Overall Background
+highlight Normal ctermbg=NONE
+
+"Transparent None Text Background
+highlight nonText ctermbg=NONE
+
+" Transparent Cursor Line
+hi CursorLine ctermbg=NONE
+
+" Transparent Line Number Background
+hi LineNr ctermbg=NONE
+
+" Transparent tabs and spaces
+highlight SpecialKey ctermbg=NONE
+
+" Transparent vertical splits
+hi foldcolumn ctermbg=none
+hi VertSplit ctermbg=none ctermfg=none
+set fillchars=
+
+" Overwrite :W with :w
+command! W  write
+
+"To create a new tab
+nnoremap <C-t> :tabnew<Enter>
+
+" Close vim tab
+nnoremap <C-q> :q<Enter>
 
 " END OF FILE
