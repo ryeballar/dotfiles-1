@@ -29,17 +29,5 @@ pact install vim curl git cmake gcc-core gcc-g++ python tmux
 # Install requirements END
 
 # seriously, that's it! and follow the prompts!
-sh <(curl -sL https://raw.githubusercontent.com/mxaddict/dotfiles/master/install)
+sh <(curl -sL https://raw.githubusercontent.com/ryeballar/dotfiles/master/install)
 ```
-
-Platform support
----
-I have only tested this on ubuntu and debian based systems.
-
-Legacy Dotfiles
----
-Looking for my old dotfiles? I moved them [here](https://github.com/mxaddict/dotfiles_legacy.git)
-
-Docs
----
-TODO: Make these...
