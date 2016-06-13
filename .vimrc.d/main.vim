@@ -16,10 +16,10 @@ set smartindent
 " of screen in VIM while editing
 set scrolloff=8
 
-" no fold columns
+" Add a bit extra margin to the left
 set foldcolumn=0
 
-" No text width
+" Make sure that we have a text guide for typing at only 80 chars MAX...
 set textwidth=0
 set colorcolumn=0
 
@@ -244,7 +244,7 @@ hi LineNr ctermbg=NONE
 " Transparent tabs and spaces
 highlight SpecialKey ctermbg=NONE
 
-" Transparent vertical splits
+" transparent vertical splits
 hi foldcolumn ctermbg=none
 hi VertSplit ctermbg=none ctermfg=none
 set fillchars=
@@ -257,5 +257,9 @@ nnoremap <C-t> :tabnew<Enter>
 
 " Close vim tab
 nnoremap <C-q> :q<Enter>
+
+" Syntax Highlighting
+au BufRead,BufNewFile *.inc set filetype=html
+au BufNewFile,BufRead *.conf setfiletype apache
 
 " END OF FILE
