@@ -43,7 +43,7 @@ mkdir -p ${XDG_CONFIG_HOME}
 if [ ! -d $DOTFILES_TMP ]
 then
 	# Now clone the repo...
-	git clone https://github.com/mxaddict/dotfiles.git $DOTFILES_TMP
+	git clone https://github.com/ryeballar/dotfiles.git $DOTFILES_TMP
 else
 	cd $DOTFILES_TMP && git fetch && git checkout origin/master
 fi
