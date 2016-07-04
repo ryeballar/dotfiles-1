@@ -29,5 +29,5 @@ pact install vim curl git cmake gcc-core gcc-g++ python tmux
 # Install requirements END
 
 # seriously, that's it! and follow the prompts!
-sh <(curl -sL https://raw.githubusercontent.com/ryeballar/dotfiles/master/install)
+sh <(curl -sL https://raw.githubusercontent.com/ryeballar/dotfiles-1/master/install)
 ```
