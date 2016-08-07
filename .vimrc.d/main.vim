@@ -3,9 +3,7 @@ if $COLORTERM == 'mate-terminal' || $COLORTERM == 'gnome-terminal'
 	" Now we know we have it, then use it!
 	set t_Co=256
 endif
-
-" Now that we have 256bit color, we can set our colorscheme
-" color vimtana
+" Now that we have 256bit color, we can set our colorscheme color vimtana
 color jellybeans
 
 " Turn on auto indention and make it smart! :)
@@ -249,6 +247,8 @@ hi foldcolumn ctermbg=none
 hi VertSplit ctermbg=none ctermfg=none
 set fillchars=
 
+hi Visual term=reverse cterm=reverse guibg=Grey
+
 " Overwrite :W with :w
 command! W  write
 
@@ -260,6 +260,7 @@ nnoremap <C-q> :q<Enter>
 
 " Syntax Highlighting
 au BufRead,BufNewFile *.inc set filetype=html
-au BufNewFile,BufRead *.conf setfiletype apache
+au BufNewFile,BufRead *.conf set filetype=apache
+au BufNewFile,BufRead .jshintrc set filetype=json
 
 " END OF FILE

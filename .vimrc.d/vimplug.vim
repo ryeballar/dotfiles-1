@@ -18,11 +18,13 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
+Plug 'justinj/vim-react-snippets'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
 Plug 'mxaddict/pdv'
+Plug 'mxw/vim-jsx'
 Plug 'nanotech/jellybeans.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -38,6 +40,13 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/matchit.zip'
 Plug 'xsbeats/vim-blade'
+
+Plug 'lepture/vim-velocity'
+Plug 'majutsushi/tagbar'
+Plug 'hushicai/tagbar-javascript.vim'
+Plug '29decibel/vim-stringify'
+Plug 'posva/vim-vue'
+Plug 'digitaltoad/vim-jade'
 
 " Let vim plug know we are done
 call plug#end()
