@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " My Bundles here:
+Plug 'digitaltoad/vim-pug'
 Plug 'Raimondi/delimitMate'
 Plug 'Shutnik/jshint2.vim'
 Plug 'SirVer/ultisnips'
@@ -47,6 +48,7 @@ Plug 'hushicai/tagbar-javascript.vim'
 Plug '29decibel/vim-stringify'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-jade'
+Plug 'mihaifm/vimpanel'
 
 " Let vim plug know we are done
 call plug#end()
