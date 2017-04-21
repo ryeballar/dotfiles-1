@@ -255,7 +255,7 @@ command! W  write
 nnoremap <C-t> :tabnew<Enter>
 
 " Close vim tab
-nnoremap <C-q> :q<Enter>
+nnoremap <C-w> :q<Enter>
 
 " Syntax Highlighting
 au BufRead,BufNewFile *.inc set filetype=html
