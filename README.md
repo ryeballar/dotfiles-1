@@ -19,7 +19,10 @@ Installation
 ```shell
 # Install requirements START
 ## FOR Ubuntu/Debian
-sudo apt-get install vim-gtk curl git cmake build-essential python-dev tmux -y
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:neovim-ppa/stable -y
+sudo apt-get install curl git cmake build-essential python-dev python-pip python3-dev python3-pip tmux neovim -y
+sudo pip3 install --upgrade neovim -y
 
 ## OR
 

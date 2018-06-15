@@ -254,9 +254,6 @@ command! W  write
 "To create a new tab
 nnoremap <C-t> :tabnew<Enter>
 
-" Close vim tab
-nnoremap <C-w> :q<Enter>
-
 " Syntax Highlighting
 au BufRead,BufNewFile *.inc set filetype=html
 au BufNewFile,BufRead *.conf set filetype=apache
