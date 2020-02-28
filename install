@@ -46,12 +46,9 @@ if [ ! -d $DOTFILES_TMP ]
 then
 	# Now clone the repo...
 	git clone https://github.com/ryeballar/dotfiles-1.git $DOTFILES_TMP
-	cd $DOT_FILES_BRANCH
-else
-	cd $DOTFILES_TMP && git fetch
 fi
 
-git checkout -f origin/$DOT_FILES_BRANCH
+cd $DOTFILES_TMP && git fetch && git checkout -f origin/$DOT_FILES_BRANCH
 
 # Check if we have  ~/.vimrc.d
 if [ -d ~/.vimrc.d ]
