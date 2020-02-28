@@ -21,6 +21,11 @@ Installation
 ## FOR Ubuntu/Debian
 sudo apt update -y
 sudo apt install software-properties-common curl git tmux neovim -y
+
+# Watchman installation for better coc-tsserver integration (optional)
+- https://facebook.github.io/watchman/docs/install.html#installing-from-source
+- Note if you're using debian: https://askubuntu.com/questions/1088137/error-when-installing-watchman-on-ubuntu-18-10
+
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --config vi
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60

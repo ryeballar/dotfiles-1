@@ -22,6 +22,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Use release branch
