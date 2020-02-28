@@ -2,6 +2,8 @@
 # Set GIT to use colors
 git config --global color.ui auto
 
+DOT_FILES_BRANCH="${DOT_FILES_BRANCH:-master}"
+
 # Load up some default values from the environment!
 GIT_NAME_CURRENT=$(git config --global user.name)
 GIT_EMAIL_CURRENT=$(git config --global user.email)
@@ -44,9 +46,12 @@ if [ ! -d $DOTFILES_TMP ]
 then
 	# Now clone the repo...
 	git clone https://github.com/ryeballar/dotfiles-1.git $DOTFILES_TMP
+	cd $DOT_FILES_BRANCH
 else
-	cd $DOTFILES_TMP && git fetch && git checkout origin/master
+	cd $DOTFILES_TMP && git fetch
 fi
+
+git checkout -f origin/$DOT_FILES_BRANCH
 
 # Check if we have  ~/.vimrc.d
 if [ -d ~/.vimrc.d ]
