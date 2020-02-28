@@ -11,7 +11,7 @@ let g:coc_global_extensions = [
 	\'coc-highlight',
 	\'coc-css',
 	\'coc-pairs'
-]
+	\]
 
 " " Use <C-l> for trigger snippet expand.
 " imap <C-l> <Plug>(coc-snippets-expand)
