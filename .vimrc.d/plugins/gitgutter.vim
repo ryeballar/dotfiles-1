@@ -5,3 +5,5 @@ let g:gitgutter_eager = 0
 
 " make gitgutter highlight the lines by default
 let g:gitgutter_highlight_lines = 0
+
+" autocmd BufWritePost * GitGutter

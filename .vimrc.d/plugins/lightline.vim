@@ -1,10 +1,11 @@
 let g:lightline = {
 			\ 'colorscheme': 'wombat',
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'wifi' ], ['ctrlpmark'] ],
 			\   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 			\ },
 			\ 'component_function': {
+			\	'wifi': 'WifiAddress',
 			\   'fugitive': 'MyFugitive',
 			\   'filename': 'MyFilename',
 			\   'fileformat': 'MyFileformat',
@@ -12,6 +13,9 @@ let g:lightline = {
 			\   'fileencoding': 'MyFileencoding',
 			\   'mode': 'MyMode',
 			\   'ctrlpmark': 'CtrlPMark',
+			\ },
+			\ 'tab_component_function': {
+			\   'filename': 'LightlineTabname','modified': 'lightline#tab#modified'
 			\ },
 			\ 'component_expand': {
 			\   'syntastic': 'SyntasticStatuslineFlag',
@@ -21,6 +25,14 @@ let g:lightline = {
 			\ },
 			\ 'subseparator': { 'left': '|', 'right': '|' }
 			\ }
+
+function! Chomp(string)
+    return substitute(a:string, '\n\+$', '', '')
+endfunction
+
+function! WifiAddress()
+	return Chomp(system("hostname -I | awk '{print $1}'"))
+endfunction
 
 function! MyModified()
 	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -41,6 +53,16 @@ function! MyFilename()
 				\ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
 				\ ('' != fname ? fname : '[No Name]') .
 				\ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+
+function! LightlineTabname(n) abort
+  let bufnr = tabpagebuflist(a:n)[tabpagewinnr(a:n) - 1]
+  let fname = expand('#' . bufnr . ':t')
+  let name = join(split(expand('#' . bufnr . ':p'), '/')[-2:],'/')
+  return fname =~ '__Tagbar__' ? 'Tagbar' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ ('' != fname ? name: '[No Name]')
 endfunction
 
 function! MyFugitive()

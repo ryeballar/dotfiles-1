@@ -1,54 +1,31 @@
 " Load up vim plug
 call plug#begin('~/.vim/plugged')
 
-" My Bundles here:
-Plug 'digitaltoad/vim-pug'
-Plug 'Raimondi/delimitMate'
-Plug 'Shutnik/jshint2.vim'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
-Plug 'airblade/vim-gitgutter'
-Plug 'dkprice/vim-easygrep'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'elzr/vim-json'
-Plug 'embear/vim-localvimrc'
-Plug 'evidens/vim-twig'
-Plug 'godlygeek/tabular'
-Plug 'gregsexton/gitv'
-Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
-Plug 'justinj/vim-react-snippets'
-Plug 'kchmck/vim-coffee-script'
-Plug 'kien/ctrlp.vim'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-Plug 'mattn/emmet-vim'
-Plug 'mxaddict/pdv'
-Plug 'mxw/vim-jsx'
 Plug 'nanotech/jellybeans.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tikhomirov/vim-glsl'
-Plug 'tobyS/vmustache'
-Plug 'tomtom/tcomment_vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'heavenshell/vim-jsdoc'
+
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/matchit.zip'
-Plug 'xsbeats/vim-blade'
+Plug 'airblade/vim-gitgutter'
+Plug 'dkprice/vim-easygrep'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'lepture/vim-velocity'
-Plug 'majutsushi/tagbar'
-Plug 'hushicai/tagbar-javascript.vim'
-Plug '29decibel/vim-stringify'
-Plug 'posva/vim-vue'
-Plug 'digitaltoad/vim-jade'
-Plug 'mihaifm/vimpanel'
+Plug 'mattn/emmet-vim'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'master'}
 
 " Let vim plug know we are done
 call plug#end()

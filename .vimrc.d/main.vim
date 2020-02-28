@@ -5,6 +5,7 @@ if $COLORTERM == 'mate-terminal' || $COLORTERM == 'gnome-terminal'
 endif
 " Now that we have 256bit color, we can set our colorscheme color vimtana
 color jellybeans
+
 " Turn on auto indention and make it smart! :)
 set autoindent
 set smartindent
@@ -20,9 +21,14 @@ set foldcolumn=0
 set textwidth=0
 set colorcolumn=0
 
+" Set backup
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+
 " Turn backup off, since most stuff is in SVN, git ,etc.. anyway...  set nobackup
-set nowb
-set noswapfile
+" set nowb
+" set noswapfile
 
 " turn on bracket matching/highlighting
 set showmatch
@@ -62,7 +68,7 @@ set wildmode=full
 
 " Ignore compiled files AND VCS files for git, mercurial and svn, these are
 " the more common VCS that i use in my projects
-set wildignore=*.o,*~,*.pyc,.git\*,.hg\*,.svn\*,vendor\*,public\vendor\*,bower_components\*,node_modules\*,platforms\*
+set wildignore=*.o,*~,*.pyc,.git\*,.hg\*,.svn\*,vendor\*,public\vendor\*,bower_components\*,node_modules\*,platforms\*,dist\*
 
 " Ignore case when searching
 set ignorecase
@@ -72,13 +78,6 @@ set smartcase
 
 " Enable mouse so we can move splits and stuff
 set mouse=
-
-" Enable system clipboard IF TMUX is not used
-if $TMUX == ''
-	set clipboard+=unnamed
-else
-	set clipboard=
-endif
 
 " Set encoded character set
 set encoding=utf-8
@@ -140,6 +139,23 @@ vno <left>  <Nop>
 vno <right> <Nop>
 vno <up>    :m'<-2<CR>`>my`<mzgv`yo`z
 
+" delete word insertion mode backspace
+noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
+
+" tabbing
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " Turn off Ex-Mode permanently
 no Q <nop>
 
@@ -160,9 +176,6 @@ no <leader>g :%s/\([=]\{7\}\)\(\_.\{-\}[>]\{7\}.*\n\)//g<CR>:%s/\([<]\{7\}.*\n\)
 " Quick command to remove all GIT conflicts from merged branch
 no <leader>G :%s/\([<]\{7\} HEAD\)\(\_.\{-\}[=]\{7\}\n\)//g<CR>:%s/\([>]\{7\}.*\n\)//g<CR>
 
-" Map Convert PRE php 5.4 array syntax to new 5.4+ syntax...
-no <leader>as :call PHPShortHandArrayConverter()<CR>
-
 " Insert the current file's name!
 no <leader>fn a<C-R>=expand("%:t:r")<CR><ESC>
 
@@ -174,33 +187,7 @@ vno <leader>fn s<C-R>=expand("%:t:r")<CR><ESC>
 command W w !sudo tee % > /dev/null
 
 " lets clean the file before we save it!
-autocmd BufWritePre,FileWritePre * :g/\s\+$/s/\s\+$//g
-
-" FUNCTION to Convert PRE php 5.4 array syntax to new 5.4+ syntax...
-function! PHPShortHandArrayConverter() range
-	" We need a place to store the count...
-	" Count the number of matches
-	let l:count=[0] | %s/[aA]rray\(.*\)(\zs/\=map(l:count,'v:val+1')[1:]/ge
-
-	" Replace empty arrays first
-	execute "normal :%s/[aA]rray\(.*\)()/[]/ge\<CR>"
-
-	" Check if we have more than 1
-	while l:count[0] > 0
-		" Find the instances
-		execute "normal gg?[aA]rray\\(.*\\)(\<CR>"
-
-		" Remove the array word
-		execute "normal dwa\<CR>"
-
-		" raplace ( with [
-		execute "normal cs(]"
-
-		" We need a place to store the count...
-		" Count the number of matches
-		let l:count=[0] | %s/[aA]rray\(.*\)(\zs/\=map(l:count,'v:val+1')[1:]/ge
-	endwhile
-endfunction
+" autocmd BufWritePre,FileWritePre * :g/\s\+$/s/\s\+$//g
 
 " FUNCTION FOR VISUAL SECTION SEARCHING
 function! VisualSelection(direction, extra_filter) range
@@ -258,5 +245,14 @@ nnoremap <C-t> :tabnew<Enter>
 au BufRead,BufNewFile *.inc set filetype=html
 au BufNewFile,BufRead *.conf set filetype=apache
 au BufNewFile,BufRead .jshintrc set filetype=json
+au BufNewFile,BufRead .babelrc set filetype=json
+au BufNewFile,BufRead apple-app-site-association set filetype=json
+autocmd FileType yaml setlocal indentexpr=
+
+au! BufNewFile,BufRead *.svelte set ft=html
+" augroup autoindent
+" 	au!
+" 	autocmd BufWritePre * :normal migg=G`i
+" augroup End
 
 " END OF FILE
