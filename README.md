@@ -29,7 +29,7 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
 # Install Node.js pre-requisites for coc.nvim to work!
-- nvm - https://github.com/nvm-sh/nvm, make sure to install node.js 10+ (You can choose lesser version, untested)
+- nvm - https://github.com/nvm-sh/nvm, make sure to install node.js 10+ (You can choose a lesser version, untested)
 - yarn - https://classic.yarnpkg.com/en/docs/install
 
 # seriously, that's it! and follow the prompts!
