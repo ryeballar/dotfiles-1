@@ -1,4 +1,18 @@
 if !exists("g:no_coc")
+
+let g:coc_global_extensions = [
+	\'coc-prettier',
+	\'coc-json',
+	\'coc-tsserver',
+	\'coc-yaml',
+	\'coc-tslint-plugin',
+	\'coc-svelte',
+	\'coc-snippets',
+	\'coc-highlight',
+	\'coc-css',
+	\'coc-pairs'
+]
+
 " " Use <C-l> for trigger snippet expand.
 " imap <C-l> <Plug>(coc-snippets-expand)
 "
