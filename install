@@ -99,6 +99,7 @@ cat $DOTFILES_TMP/.zshrc        > ~/.zshrc
 cat $DOTFILES_TMP/.shrc         > ~/.shrc
 cat $DOTFILES_TMP/.vimrc        > ~/.vimrc
 cat $DOTFILES_TMP/.tmux.conf    > ~/.tmux.conf
+cat $DOTFILES_TMP/.tmuxline.conf    > ~/.tmuxline.conf
 
 # Check if we have promptline setup already
 if [ -d ~/.vim/plugged/promptline.vim ]
