@@ -28,5 +28,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 " Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
 
+Plug 'ryanoasis/vim-devicons'
+
 " Let vim plug know we are done
 call plug#end()

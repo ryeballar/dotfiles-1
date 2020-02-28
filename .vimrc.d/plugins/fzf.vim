@@ -30,6 +30,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader>[ :GFiles?<CR>
 nnoremap <leader>p :Ag<CR>
 nnoremap <leader>] :Files<CR>
 

@@ -6,6 +6,8 @@ endif
 " Now that we have 256bit color, we can set our colorscheme color vimtana
 color jellybeans
 
+set guifont=DroidSansMono\ Nerd\ Font\ 11
+
 " Turn on auto indention and make it smart! :)
 set autoindent
 set smartindent

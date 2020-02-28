@@ -3,6 +3,7 @@ if $COLORTERM == 'mate-terminal' || $COLORTERM == 'gnome-terminal'
 	" Now we know we have it, then use it!
 	set t_Co=256
 endif
+
 " Now that we have 256bit color, we can set our colorscheme color vimtana
 color jellybeans
 
@@ -80,7 +81,7 @@ set smartcase
 set mouse=
 
 " Set encoded character set
-set encoding=utf-8
+set encoding=UTF-8
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac

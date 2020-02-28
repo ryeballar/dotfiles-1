@@ -38,17 +38,32 @@ DOTFILES_TMP="${HOME}/.dotfiles"
 # Where do we have the XDG_CONFIG_HOME?
 XDG_CONFIG_HOME="${HOME}/.config"
 
+FONTS_DIRECTORY=${HOME}/.local/share/fonts
+
+if [ -d .git ]; then
+	REPOSITORY="$(basename `git rev-parse --show-toplevel`)"
+fi
+
 # Create the XDG_CONFIG_HOME DIRECTORY
 mkdir -p ${XDG_CONFIG_HOME}
 
-# Check if we already have a copy
-if [ ! -d $DOTFILES_TMP ]
+# Check if we're not currently in a dotfiles repo
+if [ "$REPOSITORY" != "dotfiles-1" ];
 then
-	# Now clone the repo...
-	git clone https://github.com/ryeballar/dotfiles-1.git $DOTFILES_TMP
-fi
 
-cd $DOTFILES_TMP && git fetch && git checkout -f origin/$DOT_FILES_BRANCH
+	# Check if we already have a copy
+	if [ ! -d $DOTFILES_TMP ]
+	then
+		# Now clone the repo...
+		git clone https://github.com/ryeballar/dotfiles-1.git $DOTFILES_TMP
+	fi
+
+	cd $DOTFILES_TMP && git fetch && git checkout -f origin/$DOT_FILES_BRANCH
+
+else
+	# Replace dotfiles directory with the current directory
+	DOTFILES_TMP=`pwd`
+fi
 
 # Check if we have  ~/.vimrc.d
 if [ -d ~/.vimrc.d ]
@@ -88,6 +103,16 @@ if [ "$UPDATE_PLUGINS" != "n" ]
 then
 	# Install Vim Plugins
 	printf "Installing Vim Plugins, Will take a while depending on connection speed!\n"
+
+	# Create fonts directory if it doesn't exist
+	mkdir -p $FONTS_DIRECTORY
+
+	# Download font
+	curl -sL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v2.1.0/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf > "${FONTS_DIRECTORY}/Droid Sans Mono Nerd Font Complete Mono.otf"
+
+	# update font cache
+	fc-cache -f -v
+
 	vim +PlugUpgrade +PlugClean! +PlugUpdate +qall
 fi
 
@@ -101,6 +126,7 @@ cat $DOTFILES_TMP/.nvmprofilerc > ~/.nvmprofilerc
 cat $DOTFILES_TMP/.vimrc        > ~/.vimrc
 cat $DOTFILES_TMP/.tmux.conf    > ~/.tmux.conf
 cat $DOTFILES_TMP/.tmuxline.conf    > ~/.tmuxline.conf
+cp $DOTFILES_TMP/coc-settings.json ~/.config/nvim
 
 # Check if we have promptline setup already
 if [ -d ~/.vim/plugged/promptline.vim ]
