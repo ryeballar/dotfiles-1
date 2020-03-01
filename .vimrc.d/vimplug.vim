@@ -4,9 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mhartington/oceanic-next'
 
 Plug 'heavenshell/vim-jsdoc'
 

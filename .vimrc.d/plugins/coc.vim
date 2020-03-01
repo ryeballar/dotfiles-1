@@ -1,16 +1,17 @@
 if !exists("g:no_coc")
 
 let g:coc_global_extensions = [
-	\'coc-prettier',
+	\'coc-css',
+	\'coc-explorer'
+	\'coc-highlight',
 	\'coc-json',
+	\'coc-pairs'
+	\'coc-prettier',
+	\'coc-snippets',
+	\'coc-svelte',
+	\'coc-tslint-plugin',
 	\'coc-tsserver',
 	\'coc-yaml',
-	\'coc-tslint-plugin',
-	\'coc-svelte',
-	\'coc-snippets',
-	\'coc-highlight',
-	\'coc-css',
-	\'coc-pairs'
 	\]
 
 " " Use <C-l> for trigger snippet expand.
@@ -177,5 +178,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+no <leader>n :CocCommand explorer<CR>
 
 endif

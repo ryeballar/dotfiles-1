@@ -1,12 +1,3 @@
-" Check if we have 256 support
-if $COLORTERM == 'mate-terminal' || $COLORTERM == 'gnome-terminal'
-	" Now we know we have it, then use it!
-	set t_Co=256
-endif
-
-" Now that we have 256bit color, we can set our colorscheme color vimtana
-color jellybeans
-
 " Turn on auto indention and make it smart! :)
 set autoindent
 set smartindent
@@ -77,9 +68,6 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Enable mouse so we can move splits and stuff
-set mouse=
-
 " Set encoded character set
 set encoding=UTF-8
 
@@ -118,9 +106,6 @@ set shiftwidth=4
 
 " Wrapping is for noobs :D hahaha!
 set nowrap
-
-" Lets actually turn on syntax highlighting, might be usefull for coding :p
-syntax on
 
 " Turn on plugin and indent support
 filetype plugin on
@@ -211,30 +196,6 @@ function! VisualSelection(direction, extra_filter) range
 	let @/ = l:pattern
 	let @" = l:saved_reg
 endfunction
-
-" Set background to dark
-set background=dark
-" Transparent Overall Background
-highlight Normal ctermbg=NONE
-
-"Transparent None Text Background
-highlight nonText ctermbg=NONE
-
-" Transparent Cursor Line
-hi CursorLine ctermbg=NONE
-
-" Transparent Line Number Background
-hi LineNr ctermbg=NONE
-
-" Transparent tabs and spaces
-highlight SpecialKey ctermbg=NONE
-
-" transparent vertical splits
-hi foldcolumn ctermbg=none
-hi VertSplit ctermbg=none ctermfg=none
-set fillchars=
-
-hi Visual term=reverse cterm=reverse guibg=Grey
 
 " Overwrite :W with :w
 command! W  write
