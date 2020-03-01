@@ -2,8 +2,11 @@
 	"javascript.suggestionActions.enabled": false,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.keyMappings": {
+		"h": "unmap",
+		"l": "unmap",
 		"<cr>": ["expandable?", "expandOrCollapse", "open"]
 	},
+	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link]",
 	"suggest.noselect": false,
 	"snippets.extends": {
 		"javascriptreact": ["javascript"],
