@@ -2,7 +2,7 @@ if !exists("g:no_coc")
 
 let g:coc_global_extensions = [
 	\'coc-css',
-	\'coc-explorer'
+	\'coc-explorer',
 	\'coc-highlight',
 	\'coc-json',
 	\'coc-pairs',
