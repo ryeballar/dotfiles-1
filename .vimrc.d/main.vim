@@ -47,14 +47,8 @@ set ruler
 " Show the cursor's current line highlight
 set cursorline
 
-" Show the cmd and set height to 1 cause it looks better now that we have tmux
-" setup to look like powerline/airline
+" Show the cmd
 set showcmd
-set cmdheight=1
-
-" turn on the wildmenu cause we love being wild
-set wildmenu
-set wildmode=full
 
 " Ignore compiled files AND VCS files for git, mercurial and svn, these are
 " the more common VCS that i use in my projects
