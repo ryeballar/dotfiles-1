@@ -6,6 +6,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mhartington/oceanic-next'
 
+Plug 'honza/vim-snippets'
+
 Plug 'heavenshell/vim-jsdoc'
 
 Plug 'tpope/vim-fugitive'
