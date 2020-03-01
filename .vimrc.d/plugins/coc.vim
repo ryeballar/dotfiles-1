@@ -5,7 +5,7 @@ let g:coc_global_extensions = [
 	\'coc-explorer'
 	\'coc-highlight',
 	\'coc-json',
-	\'coc-pairs'
+	\'coc-pairs',
 	\'coc-prettier',
 	\'coc-snippets',
 	\'coc-svelte',
