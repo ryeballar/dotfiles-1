@@ -13,14 +13,12 @@ set foldcolumn=0
 set textwidth=0
 set colorcolumn=0
 
-" Set backup
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
 
-" Turn backup off, since most stuff is in SVN, git ,etc.. anyway...  set nobackup
-" set nowb
-" set noswapfile
+" Turn backup off, since most stuff is in SVN, git ,etc.. anyway...
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile
 
 " turn on bracket matching/highlighting
 set showmatch
