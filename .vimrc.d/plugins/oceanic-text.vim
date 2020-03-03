@@ -11,9 +11,9 @@ augroup MyColors
     autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
                       \ | highlight EndOfBuffer ctermbg=NONE guibg=NONE
                       \ | highlight NonText ctermbg=NONE guibg=NONE
-                      \ | highlight LineNr ctermbg=NONE guibg=NONE
                       \ | highlight CursorLineNr ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
                       \ | highlight CursorLineNR ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
+                      \ | highlight LineNr ctermbg=NONE guibg=NONE
                       \ | highlight SpecialKey ctermbg=NONE guibg=NONE
                       \ | highlight FoldColumn ctermbg=NONE guibg=NONE
                       \ | highlight VertSplit ctermbg=NONE guibg=NONE

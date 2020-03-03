@@ -7,6 +7,7 @@
 		"<cr>": ["expandable?", "expandOrCollapse", "open"]
 	},
 	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link]",
+	"explorer.previewAction.strategy": false,
 	"suggest.noselect": false,
 	"snippets.extends": {
 		"javascriptreact": ["javascript"],

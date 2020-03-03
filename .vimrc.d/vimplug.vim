@@ -25,6 +25,13 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'lambdalisue/suda.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'farmergreg/vim-lastplace'
+
 " Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
 

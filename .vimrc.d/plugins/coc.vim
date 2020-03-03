@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
 	\'coc-docker',
 	\'coc-explorer',
 	\'coc-sh',
+	\'coc-emmet',
 	\'coc-highlight',
 	\'coc-html',
 	\'coc-json',
@@ -15,44 +16,10 @@ let g:coc_global_extensions = [
 	\'coc-svelte',
 	\'coc-tslint-plugin',
 	\'coc-tsserver',
+	\'coc-word',
 	\'coc-yaml',
 	\]
 
-" " Use <A-l> for trigger snippet expand.
-" imap <A-l> <Plug>(coc-snippets-expand)
-"
-" " Use <A-j> for select text for visual placeholder of snippet.
-" vmap <A-j> <Plug>(coc-snippets-select)
-"
-" " Use <A-j> for jump to next placeholder, it's default of coc.nvim
-" let g:coc_snippet_next = '<A-j>'
-"
-" " Use <A-k> for jump to previous placeholder, it's default of coc.nvim
-" let g:coc_snippet_prev = '<A-k>'
-"
-" " Use <A-j> for both expand and jump (make expand higher priority.)
-" imap <A-j> <Plug>(coc-snippets-expand-jump)
-"
-" " use <tab> for trigger completion and navigate to the next complete item
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-"
-" let g:coc_snippet_next = '<tab>'
-"
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? coc#_select_confirm() :
-"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-"
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"
-" =================================
-
-"======= end of coc.nvim config ======
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -198,7 +165,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " PLUGIN: coc-explorer
+" Open coc explorer
 no <leader>n :CocCommand explorer<CR>
+
+" Quit coc-explorer when it's the only buffer around
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" Enable cursor lines in coc-explorer
+au WinEnter FileType coc-explorer setlocal cursorline
 
 " PLUGIN: coc-snippets
 " To make <cr> for confirm completion
@@ -210,8 +184,8 @@ imap <A-l> <Plug>(coc-snippets-expand)
 " Use <A-j> for select text for visual placeholder of snippet.
 vmap <A-j> <Plug>(coc-snippets-select)
 
-let g:coc_snippet_next = '<a-j>'
-let g:coc_snippet_prev = '<a-k>'
+let g:coc_snippet_next = '<a-h>'
+let g:coc_snippet_prev = '<a-l>'
 
 " Use <A-j> for both expand and jump (make expand higher priority.)
 imap <A-j> <Plug>(coc-snippets-expand-jump)

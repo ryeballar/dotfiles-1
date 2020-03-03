@@ -44,8 +44,8 @@ set number
 " Turn on the ruler so that we can always see the cursor position
 set ruler
 
-" Show the cursor's current line highlight
-set cursorline
+" enforce not showing cursor and only enable in it coc-explorer
+set nocursorline
 
 " Show the cmd
 set showcmd
@@ -137,22 +137,11 @@ noremap <leader>0 :tablast<cr>
 " Turn off Ex-Mode permanently
 no Q <nop>
 
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vno <silent> * :call VisualSelection('f', '')<CR>
-vno <silent> # :call VisualSelection('b', '')<CR>
-
 " Smart way to move between windows
 no <C-j> <C-W>j
 no <C-k> <C-W>k
 no <C-h> <C-W>h
 no <C-l> <C-W>l
-
-" Quick command to remove all GIT conflicts from merged branch
-no <leader>g :%s/\([=]\{7\}\)\(\_.\{-\}[>]\{7\}.*\n\)//g<CR>:%s/\([<]\{7\}.*\n\)//g<CR>
-
-" Quick command to remove all GIT conflicts from merged branch
-no <leader>G :%s/\([<]\{7\} HEAD\)\(\_.\{-\}[=]\{7\}\n\)//g<CR>:%s/\([>]\{7\}.*\n\)//g<CR>
 
 " Insert the current file's name!
 no <leader>fn a<C-R>=expand("%:t:r")<CR><ESC>
@@ -160,37 +149,8 @@ no <leader>fn a<C-R>=expand("%:t:r")<CR><ESC>
 " Insert the current file's name!
 vno <leader>fn s<C-R>=expand("%:t:r")<CR><ESC>
 
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
 " lets clean the file before we save it!
 " autocmd BufWritePre,FileWritePre * :g/\s\+$/s/\s\+$//g
-
-" FUNCTION FOR VISUAL SECTION SEARCHING
-function! VisualSelection(direction, extra_filter) range
-	let l:saved_reg = @"
-	execute "normal! vgvy"
-
-	let l:pattern = escape(@", '\\/.*$^~[]')
-	let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-	if a:direction == 'b'
-		execute "normal ?" . l:pattern . "^M"
-	elseif a:direction == 'gv'
-		call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
-	elseif a:direction == 'replace'
-		call CmdLine("%s" . '/'. l:pattern . '/')
-	elseif a:direction == 'f'
-		execute "normal /" . l:pattern . "^M"
-	endif
-
-	let @/ = l:pattern
-	let @" = l:saved_reg
-endfunction
-
-" Overwrite :W with :w
-command! W  write
 
 "To create a new tab
 nnoremap <C-t> :tabnew<Enter>
@@ -198,9 +158,8 @@ nnoremap <C-t> :tabnew<Enter>
 " Syntax Highlighting
 au BufRead,BufNewFile *.inc set filetype=html
 au BufNewFile,BufRead *.conf set filetype=apache
-au BufNewFile,BufRead .jshintrc set filetype=json
+au BufNewFile,BufRead .jshintrc, apple-app-site-association, .babelrc set filetype=json
 au BufNewFile,BufRead .babelrc set filetype=json
-au BufNewFile,BufRead apple-app-site-association set filetype=json
 autocmd FileType yaml setlocal indentexpr=
 
 au! BufNewFile,BufRead *.svelte set ft=html

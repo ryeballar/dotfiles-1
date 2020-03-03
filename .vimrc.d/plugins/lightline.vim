@@ -1,5 +1,5 @@
 let g:lightline = {
-			\ 'colorscheme': 'OceanicNext',
+			\ 'colorscheme': 'oceanicnext',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'wifi' ] ],
 			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -14,7 +14,10 @@ let g:lightline = {
 			\   'mode': 'MyMode',
 			\ },
 			\ 'tab_component_function': {
-			\   'filename': 'LightlineTabname','modified': 'lightline#tab#modified'
+			\   'filename': 'LightlineTabname',
+			\   'modified': 'lightline#tab#modified',
+			\   'fileformat': 'MyFileformat',
+			\   'filetype': 'MyFiletype',
 			\ },
 			\ 'subseparator': { 'left': '|', 'right': '|' }
 			\ }
@@ -44,7 +47,7 @@ function! MyFilename()
 				\ &ft == 'unite' ? unite#get_status_string() :
 				\ &ft == 'vimshell' ? vimshell#get_status_string() :
 				\ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-				\ ('' != fname ? fname : '[No Name]') .
+				\ ('' != fname ? MyFiletype() . ' ' . fname : '[No Name]') .
 				\ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
@@ -70,12 +73,12 @@ function! MyFugitive()
 	return ''
 endfunction
 
-function! MyFileformat()
-	return winwidth(0) > 70 ? &fileformat : ''
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
-function! MyFiletype()
-	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFileencoding()
