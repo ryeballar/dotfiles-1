@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
 	\'coc-prettier',
 	\'coc-snippets',
 	\'coc-spell-checker',
+	\'coc-stylelint',
 	\'coc-svelte',
 	\'coc-tslint-plugin',
 	\'coc-tsserver',
@@ -184,11 +185,17 @@ imap <A-l> <Plug>(coc-snippets-expand)
 " Use <A-j> for select text for visual placeholder of snippet.
 vmap <A-j> <Plug>(coc-snippets-select)
 
-let g:coc_snippet_next = '<a-h>'
-let g:coc_snippet_prev = '<a-l>'
+" Use <A-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<a-j>'
+
+" Use <A-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<a-k>'
 
 " Use <A-j> for both expand and jump (make expand higher priority.)
 imap <A-j> <Plug>(coc-snippets-expand-jump)
+
+" PLUGIN: coc-terminal
+" imap <A-r> <Plug>(coc-terminal-toggle)
 
 "======= end of plugin related config =======
 

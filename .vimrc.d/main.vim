@@ -104,18 +104,11 @@ filetype plugin on
 filetype indent on
 
 " Disable arrow keys and use UP and DOWN for code movement
-no  <down>  mz:m+<CR>`z
+" Moving text up & down will not be handled by vim-move.vim plugin.
+no  <down>  <Nop>
 no  <left>  <Nop>
 no  <right> <Nop>
-no  <up>    mz:m-2<CR>`z
-ino <down>  <Esc><Esc>mz:m+<CR>`z
-ino <left>  <Nop>
-ino <right> <Nop>
-ino <up>    <Esc><Esc>mz:m-2<CR>`z
-vno <down>  :m'>+<CR>`<my`>mzgv`yo`z
-vno <left>  <Nop>
-vno <right> <Nop>
-vno <up>    :m'<-2<CR>`>my`<mzgv`yo`z
+no  <up>    <Nop>
 
 " delete word insertion mode backspace
 noremap! <C-BS> <C-w>
@@ -138,10 +131,10 @@ noremap <leader>0 :tablast<cr>
 no Q <nop>
 
 " Smart way to move between windows
-no <C-j> <C-W>j
-no <C-k> <C-W>k
-no <C-h> <C-W>h
-no <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " Insert the current file's name!
 no <leader>fn a<C-R>=expand("%:t:r")<CR><ESC>
@@ -149,7 +142,10 @@ no <leader>fn a<C-R>=expand("%:t:r")<CR><ESC>
 " Insert the current file's name!
 vno <leader>fn s<C-R>=expand("%:t:r")<CR><ESC>
 
-" lets clean the file before we save it!
+" Refresh .vimrc and coc.nvim
+nnoremap <F5> :source ~/.vimrc<Enter> :CocRestart<Enter>
+
+" lets clean the file before we save !it
 " autocmd BufWritePre,FileWritePre * :g/\s\+$/s/\s\+$//g
 
 "To create a new tab

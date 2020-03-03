@@ -8,8 +8,6 @@ Plug 'mhartington/oceanic-next'
 
 Plug 'honza/vim-snippets'
 
-Plug 'heavenshell/vim-jsdoc'
-
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'dkprice/vim-easygrep'
@@ -18,7 +16,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'lepture/vim-velocity'
-Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
@@ -31,6 +28,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'farmergreg/vim-lastplace'
+Plug 'matze/vim-move'
 
 " Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
