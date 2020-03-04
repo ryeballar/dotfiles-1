@@ -103,13 +103,6 @@ set nowrap
 filetype plugin on
 filetype indent on
 
-" Disable arrow keys and use UP and DOWN for code movement
-" Moving text up & down will not be handled by vim-move.vim plugin.
-no  <down>  <Nop>
-no  <left>  <Nop>
-no  <right> <Nop>
-no  <up>    <Nop>
-
 " delete word insertion mode backspace
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
