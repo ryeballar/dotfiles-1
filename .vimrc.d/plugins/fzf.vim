@@ -29,6 +29,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--no-group --column --color --ignore-case', <bang>0)
+
 nnoremap <leader><leader> :GFiles<CR>
 nnoremap <leader>[ :GFiles?<CR>
 nnoremap <leader>p :Ag<CR>

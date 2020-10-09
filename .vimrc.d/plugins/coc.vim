@@ -1,11 +1,15 @@
 if !exists("g:no_coc")
 
+" let $NVIM_COC_LOG_LEVEL = 'debug'
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
+
 let g:coc_global_extensions = [
 	\'coc-css',
 	\'coc-docker',
 	\'coc-explorer',
 	\'coc-sh',
 	\'coc-emmet',
+	\'coc-eslint',
 	\'coc-highlight',
 	\'coc-html',
 	\'coc-json',
@@ -13,8 +17,8 @@ let g:coc_global_extensions = [
 	\'coc-prettier',
 	\'coc-snippets',
 	\'coc-spell-checker',
-	\'coc-stylelint',
-	\'coc-svelte',
+	\'coc-stylelintplus',
+	\'coc-svg',
 	\'coc-tslint-plugin',
 	\'coc-tsserver',
 	\'coc-word',

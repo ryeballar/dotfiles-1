@@ -9,6 +9,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-fugitive'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'dkprice/vim-easygrep'
 
@@ -29,6 +30,13 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'farmergreg/vim-lastplace'
 Plug 'matze/vim-move'
+Plug 'andrewradev/splitjoin.vim'
+
+Plug 'liuchengxu/vista.vim'
+
+Plug 'voldikss/vim-floaterm'
+
+Plug 'leafoftree/vim-svelte-plugin'
 
 " Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'master'}

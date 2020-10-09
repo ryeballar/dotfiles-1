@@ -151,7 +151,7 @@ au BufNewFile,BufRead .jshintrc, apple-app-site-association, .babelrc set filety
 au BufNewFile,BufRead .babelrc set filetype=json
 autocmd FileType yaml setlocal indentexpr=
 
-au! BufNewFile,BufRead *.svelte set ft=html
+" au! BufNewFile,BufRead *.svelte set ft=html
 " augroup autoindent
 " 	au!
 " 	autocmd BufWritePre * :normal migg=G`i

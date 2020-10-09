@@ -1,7 +1,7 @@
 let g:lightline = {
 			\ 'colorscheme': 'oceanicnext',
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'wifi' ] ],
+			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'wifi', 'method' ] ],
 			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 			\ },
 			\ 'component_function': {
@@ -12,6 +12,7 @@ let g:lightline = {
 			\   'filetype': 'MyFiletype',
 			\   'fileencoding': 'MyFileencoding',
 			\   'mode': 'MyMode',
+			\   'method': 'NearestMethodOrFunction',
 			\ },
 			\ 'tab_component_function': {
 			\   'filename': 'LightlineTabname',
@@ -120,3 +121,16 @@ function SetupLightlineColors() abort
 
   call lightline#colorscheme()
 endfunction
+
+" Vista.vim
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc 
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
