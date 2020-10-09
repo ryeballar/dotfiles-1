@@ -13,7 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'dkprice/vim-easygrep'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'lepture/vim-velocity'
@@ -39,7 +39,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'leafoftree/vim-svelte-plugin'
 
 " Use release branch
-Plug 'neoclide/coc.nvim', {'branch': 'master'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'ryanoasis/vim-devicons'
 

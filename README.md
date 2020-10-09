@@ -20,7 +20,7 @@ Installation
 # Install requirements START
 ## FOR Ubuntu/Debian
 sudo apt update -y
-sudo apt install software-properties-common curl git tmux neovim silversearcher-ag -y
+sudo apt install software-properties-common curl git tmux neovim fzf ripgrep -y
 
 # Watchman installation for better coc-tsserver integration (optional)
 - https://facebook.github.io/watchman/docs/install.html#installing-from-source
