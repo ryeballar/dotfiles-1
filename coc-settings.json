@@ -2,15 +2,39 @@
 	"javascript.suggestionActions.enabled": false,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.keyMappings": {
-		"h": "unmap",
-		"l": "unmap",
-		"<cr>": ["expandable?", "expandOrCollapse", "open"]
+		"h": false,
+		"l": false,
+		"<cr>": [
+      		"expandable?",
+      		["expanded?", "collapse", "expand"],
+      		"open"
+    	]
 	},
 	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link]",
 	"explorer.previewAction.strategy": false,
+	"explorer.previewAction.onHover": false,
 	"suggest.noselect": false,
 	"snippets.extends": {
 		"javascriptreact": ["javascript"],
 		"typescript": ["javascript"]
-	}
+	},
+	"coc.source.word.priority": -1,
+	"coc.preferences.useQuickfixForLocations": true,
+
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"wxss.validate": false,
+
+	"eslint.autoFixOnSave": true,
+	 "stylelintplus.autoFixOnSave": true,
+	"coc.preferences.formatOnSaveFiletypes": ["css", "scss", "javascript", "javascriptreact", "json", "html", "svg", "jsx", "svelte", "typescript", "typescriptreact"],
+
+	"html.format.enable": true,
+	"html.validate.scripts": true,
+	"html.validate.styles": true,
+
+	"prettier.onlyUseLocalVersion": true,
+
+	"svelte.plugin.svelte.format.enable": true
 }

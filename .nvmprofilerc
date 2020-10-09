@@ -15,6 +15,11 @@ find-up () {
     echo "$path"
 }
 
+function useNvm() {
+	path=$(find-up .nvmrc)/.nvmrc
+	[[ -f $path ]] && nvm use $(cat $path)
+}
+
 cdnvm(){
     cd "$@";
     nvm_path=$(find-up .nvmrc | tr -d '[:space:]')
@@ -59,3 +64,5 @@ cdnvm(){
 }
 
 alias cd='cdnvm'
+
+useNvm
