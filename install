@@ -88,7 +88,7 @@ cat $DOTFILES_TMP/.tmux.conf    > ~/.tmux.conf
 cat $DOTFILES_TMP/.tmuxline.conf    > ~/.tmuxline.conf
 cat $DOTFILES_TMP/coc-settings.json > ~/.config/nvim/coc-settings.json
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
 if [ ! -f $NVM_DIR/nvm.sh ]
 then
