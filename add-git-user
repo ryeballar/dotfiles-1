@@ -2,7 +2,9 @@
 
 read -e -p "Enter directory for an alternative git user config: " GIT_DIR
 
-GIT_CONFIG_FILE=$GIT_DIR/.gitconfig
+EXPANDED_GIT_DIR=$(realpath $(eval echo $GIT_DIR))
+
+GIT_CONFIG_FILE=$EXPANDED_GIT_DIR/.gitconfig
 
 GIT_NAME_CURRENT=$(git config -f $GIT_CONFIG_FILE user.name)
 GIT_EMAIL_CURRENT=$(git config -f $GIT_CONFIG_FILE user.email)
@@ -25,6 +27,7 @@ then
 	GIT_EMAIL_CURRENT=$GIT_EMAIL_NEW
 fi
 
+
 while true; do
 	echo "Do you want to save this new git user in $GIT_CONFIG_FILE?"
 	echo "user.name = $GIT_NAME_CURRENT"
@@ -34,7 +37,7 @@ while true; do
 
 	case $GIT_USER_SAVE in
 		[Yy]* )
-			mkdir -p $GIT_DIR
+			mkdir -p $EXPANDED_GIT_DIR
 			git config -f $GIT_CONFIG_FILE user.name "$GIT_NAME_CURRENT"
 			git config -f $GIT_CONFIG_FILE user.email "$GIT_EMAIL_CURRENT"
 			git config --global --replace-all includeif.gitdir:$GIT_DIR/*/.path "$GIT_CONFIG_FILE"
