@@ -10,15 +10,15 @@ GIT_NAME_CURRENT=$(git config --global user.name)
 GIT_EMAIL_CURRENT=$(git config --global user.email)
 
 # Ask what name to use?
-printf "Git Name [$GIT_NAME_CURRENT]:"
+printf "Git Name [$GIT_NAME_CURRENT]: "
 read GIT_NAME_NEW
 
 # Ask what email to use?
-printf "Git Email [$GIT_EMAIL_CURRENT]:"
+printf "Git Email [$GIT_EMAIL_CURRENT]: "
 read GIT_EMAIL_NEW
 
 # Ask if we want to update the plugins...
-printf "Update/Install Plugins? [Y/n]:"
+printf "Update/Install Plugins? [Y/n]: "
 read UPDATE_PLUGINS
 
 # Save the GIT_NAME

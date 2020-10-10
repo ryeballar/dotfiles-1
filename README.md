@@ -23,6 +23,7 @@ sudo apt update -y
 sudo apt install software-properties-common curl git tmux neovim fzf ripgrep -y
 
 # Watchman installation for better coc-tsserver integration (optional)
+sudo apt install libtool g++ libssl-dev -y
 - https://facebook.github.io/watchman/docs/install.html#installing-from-source
 - Note if you're using debian: https://askubuntu.com/questions/1088137/error-when-installing-watchman-on-ubuntu-18-10
 
