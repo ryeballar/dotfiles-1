@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Added nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 # https://github.com/nvm-sh/nvm#bash
 # Automatically use `nvm use` when changing directory if
 # an .nvmrc file exists in the directory or any of it's ancestral directory.

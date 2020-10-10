@@ -1,0 +1,46 @@
+#!/bin/bash
+
+read -e -p "Enter directory for an alternative git user config: " GIT_DIR
+
+GIT_CONFIG_FILE=$GIT_DIR/.gitconfig
+
+GIT_NAME_CURRENT=$(git config -f $GIT_CONFIG_FILE user.name)
+GIT_EMAIL_CURRENT=$(git config -f $GIT_CONFIG_FILE user.email)
+
+# Ask what name to use?
+printf "Git Name [$GIT_NAME_CURRENT]: "
+read GIT_NAME_NEW
+
+# Ask what email to use?
+printf "Git Email [$GIT_EMAIL_CURRENT]: "
+read GIT_EMAIL_NEW
+
+if [ "$GIT_NAME_NEW" != "" ]
+then
+	GIT_NAME_CURRENT=$GIT_NAME_NEW
+fi
+
+if [ "$GIT_EMAIL_NEW" != "" ]
+then
+	GIT_EMAIL_CURRENT=$GIT_EMAIL_NEW
+fi
+
+while true; do
+	echo "Do you want to save this new git user in $GIT_CONFIG_FILE?"
+	echo "user.name = $GIT_NAME_CURRENT"
+	echo "user.email = $GIT_EMAIL_CURRENT"
+	printf "[Y/n]: "
+	read GIT_USER_SAVE
+
+	case $GIT_USER_SAVE in
+		[Yy]* )
+			mkdir -p $GIT_DIR
+			git config -f $GIT_CONFIG_FILE user.name "$GIT_NAME_CURRENT"
+			git config -f $GIT_CONFIG_FILE user.email "$GIT_EMAIL_CURRENT"
+			git config --global --replace-all includeif.gitdir:$GIT_DIR/*/.path "$GIT_CONFIG_FILE"
+			break;;
+		[Nn]* ) break;;
+		* ) echo "Please answer [Y/n]";;
+	esac
+
+done
