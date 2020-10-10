@@ -20,7 +20,7 @@ Installation
 # Install requirements START
 ## FOR Ubuntu/Debian
 sudo apt update -y
-sudo apt install software-properties-common curl git tmux neovim fzf ripgrep -y
+sudo apt install software-properties-common curl git tmux neovim fzf ripgrep jq -y
 
 # Watchman installation for better coc-tsserver integration (optional)
 sudo apt install libtool g++ libssl-dev -y
