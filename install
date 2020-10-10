@@ -76,29 +76,6 @@ fi
 # Copy the .vimrc.d/ DIR to home DIR
 cp -r $DOTFILES_TMP/.vimrc.d ~/
 
-# Check if our plugin manager is installed
-if [ ! -f ~/.vim/autoload/plug.vim ]
-then
-	# Install our plugin manager
-	printf "Installing our plugin manager\n"
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-# Setup the vimrc for temporary use!
-echo "source ~/.vimrc.d/vimplug.vim" > ~/.vimrc
-
-# Make some symlinks...
-if [ ! -h $XDG_CONFIG_HOME/nvim ]
-then
-	ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-fi
-
-# Make some symlinks...
-if [ ! -h $XDG_CONFIG_HOME/nvim/init.vim ]
-then
-	ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-fi
-
 # Copy all our custom files!
 cat $DOTFILES_TMP/.bash_profile > ~/.bash_profile
 cat $DOTFILES_TMP/.bashrc       > ~/.bashrc
@@ -133,6 +110,29 @@ then
 fi
 
 nvm use default
+
+# Check if our plugin manager is installed
+if [ ! -f ~/.vim/autoload/plug.vim ]
+then
+	# Install our plugin manager
+	printf "Installing our plugin manager\n"
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Setup the vimrc for temporary use!
+echo "source ~/.vimrc.d/vimplug.vim" > ~/.vimrc
+
+# Make some symlinks...
+if [ ! -h $XDG_CONFIG_HOME/nvim ]
+then
+	ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+fi
+
+# Make some symlinks...
+if [ ! -h $XDG_CONFIG_HOME/nvim/init.vim ]
+then
+	ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+fi
 
 # Check if we even want to install/update plugins
 if [ "$UPDATE_PLUGINS" != "n" ]
