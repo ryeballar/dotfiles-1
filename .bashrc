@@ -15,5 +15,3 @@ shopt -s checkwinsize
 
 # Load our shared SHELLRC file
 source ~/.shrc
-
-source ~/.nvmprofilerc

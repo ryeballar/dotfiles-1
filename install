@@ -83,22 +83,17 @@ cat $DOTFILES_TMP/.zsh_profile  > ~/.zsh_profile
 cat $DOTFILES_TMP/.zshrc        > ~/.zshrc
 cat $DOTFILES_TMP/.shrc         > ~/.shrc
 cat $DOTFILES_TMP/.nvmprofilerc > ~/.nvmprofilerc
-cat $DOTFILES_TMP/.vimrc        > ~/.vimrc
-cat $DOTFILES_TMP/.tmux.conf    > ~/.tmux.conf
-cat $DOTFILES_TMP/.tmuxline.conf    > ~/.tmuxline.conf
 cat $DOTFILES_TMP/coc-settings.json > ~/.config/nvim/coc-settings.json
 
-NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
-if [ ! -f $NVM_DIR/nvm.sh ]
+echo "" >> ~/.bashrc
+echo "source ~/.nvmprofilerc" >> ~/.bashrc
+
+source ~/.bashrc
+
+if [ ! -f ~/.nvmrc ] || [ "$(cat ~/.nvmrc | xargs)" == "" ];
 then
-
-	NVM_VERSION=$(curl https://api.github.com/repos/nvm-sh/nvm/releases/latest -s | jq -r .name)
-
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh | bash
-
-	source ~/.bashrc
-
 	nvm install --lts
 
 	DOTFILES_NODE_VERSION=$(nvm current)
@@ -106,7 +101,6 @@ then
 	nvm alias default $DOTFILES_NODE_VERSION
 
 	echo $DOTFILES_NODE_VERSION > ~/.nvmrc
-
 fi
 
 nvm use default
@@ -152,17 +146,21 @@ then
 	vim +PlugUpgrade +PlugClean! +PlugUpdate +qall
 fi
 
+cat $DOTFILES_TMP/.vimrc        > ~/.vimrc
+cat $DOTFILES_TMP/.tmux.conf    > ~/.tmux.conf
+cat $DOTFILES_TMP/.tmuxline.conf    > ~/.tmuxline.conf
+
 # Check if we have promptline setup already
 if [ -d ~/.vim/plugged/promptline.vim ]
 then
-	# Setup Promptline!
-	vim +"PromptlineSnapshot! ~/.promptline.sh" +qall
+	#Setup Promptline!
+	vim +"PromptlineSnapshot! ~/.promptline.sh lightline" +qall
 fi
 
 # Check if we have tmuxline setup already
 if [ -d ~/.vim/plugged/tmuxline.vim ]
 then
-	# Setup Promptline!
+	# Setup Tmuxline!
 	vim +Tmuxline +"TmuxlineSnapshot! ~/.tmuxline.conf" +qall
 fi
 
