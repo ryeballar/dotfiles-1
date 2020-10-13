@@ -15,7 +15,7 @@ function useNvm() {
 	if command -v nvm &> /dev/null
 	then
 		path=$(find-up .nvmrc)/.nvmrc
-		[[ -f $path ]] && nvm use $(cat $path)
+		[[ -f $path ]] && nvm use $(cat $path) > /dev/null 2>&1
 	fi
 }
 
