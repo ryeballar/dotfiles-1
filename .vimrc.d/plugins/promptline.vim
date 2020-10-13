@@ -13,7 +13,7 @@ let g:promptline_symbols = {
 let g:promptline_preset = {
 	\'a':    [ promptline#slices#user() ],
 	\'b':    [ promptline#slices#cwd() ],
-	\'c':    [ '$(nvm current 2> /dev/null'],
+	\'c':    [ '$(nvm current 2> /dev/null)'],
 	\'y':    [ promptline#slices#git_status() ],
 	\'z':    [ promptline#slices#vcs_branch() ],
 	\'warn': [ promptline#slices#last_exit_code(), promptline#slices#jobs() ]
