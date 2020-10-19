@@ -87,11 +87,6 @@ cat $DOTFILES_TMP/coc-settings.json > ~/.config/nvim/coc-settings.json
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
-echo "" >> ~/.bashrc
-echo "source ~/.nvmprofilerc" >> ~/.bashrc
-
-source ~/.bashrc
-
 if [ ! -f ~/.nvmrc ] || [ "$(cat ~/.nvmrc | xargs)" == "" ];
 then
 	nvm install --lts
@@ -101,7 +96,15 @@ then
 	nvm alias default $DOTFILES_NODE_VERSION
 
 	echo $DOTFILES_NODE_VERSION > ~/.nvmrc
+
 fi
+
+if [[ ! "$(cat ~/.bashrc)" =~ 'nvmprofilerc' ]]; then
+    echo "" >> ~/.bashrc
+    echo "source ~/.nvmprofilerc" >> ~/.bashrc
+fi
+
+source ~/.bashrc
 
 nvm use default
 
